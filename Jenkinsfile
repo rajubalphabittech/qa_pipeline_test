@@ -11,5 +11,10 @@ pipeline {
         sh 'echo "test build"'
       }
     }
+    stage('Slack msg') {
+      steps {
+        slackSend(message: 'Done!', channel: '#jenkins-qa', color: 'danger', teamDomain: 'matterport')
+      }
+    }
   }
 }
