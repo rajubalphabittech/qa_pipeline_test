@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Setup') {
       steps {
-        sh 'sh \'ls -l\''
+        sh 'sh "ls -l"'
       }
     }
     stage('Build') {
