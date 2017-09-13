@@ -13,7 +13,8 @@ pipeline {
     }
     stage('Slack msg') {
       steps {
-        slackSend(message: 'Done...!', channel: '#jenkins-qa', color: 'danger', teamDomain: 'matterport', failOnError: true)
+        sh 'ls -ggdfh'
+        slackSend(message: 'Fail?', channel: '#jenkins-qa', failOnError: true, color: 'danger')
       }
     }
   }
