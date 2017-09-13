@@ -12,8 +12,12 @@ pipeline {
       }
     }
     stage('Slack msg') {
-      steps {
-        sh 'ls foo'
+      try {
+        steps {
+          sh 'ls foo' 
+        }
+      }
+      catch (exc) {
         slackSend channel: '#jenkins-qa', color: 'danger', message: 'Start...'
       }
     }
