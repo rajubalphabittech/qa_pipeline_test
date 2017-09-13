@@ -1,26 +1,14 @@
 pipeline {
   agent any
   stages {
-    stage('Setup') {
-      steps {
-        sh 'ls -l'
-      }
-    }
-    stage('Build') {
-      steps {
-        sh 'echo "test build"'
-      }
-    }
-    stage('Slack msg') {
-      try {
-        steps {
-          sh 'ls foo' 
+    stage('Example') {
+        try {
+            sh 'exit 1'
         }
-      }
-      catch (exc) {
-        slackSend channel: '#jenkins-qa', color: 'danger', message: 'Start...'
-      }
+        catch (exc) {
+            echo 'Something failed, I should sound the klaxons!'
+            throw
+              }
     }
   }
 }
-
