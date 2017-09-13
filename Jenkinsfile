@@ -1,5 +1,6 @@
 pipeline {
   agent any
+  notifyStarted()
   stages {
     stage('Setup') {
       steps {
@@ -14,8 +15,13 @@ pipeline {
     stage('Slack msg') {
       steps {
         sh 'ls foo'
-        slackSend(message: 'Fail?', channel: '#jenkins-qa', failOnError: true, color: 'danger')
+        slackSend channel: '#jenkins-qa', color: 'danger', message: 'Start...'
       }
     }
   }
 }
+
+def notifyStarted() {
+   // send to Slack 
+   slackSend (color: '#FFFF00', message: "STARTED...")
+ }
