@@ -13,7 +13,7 @@ pipeline {
     }
     stage('Slack msg') {
       steps {
-        sh 'ls -ggdfh'
+        sh 'ls foo'
         slackSend(message: 'Fail?', channel: '#jenkins-qa', failOnError: true, color: 'danger')
       }
     }
