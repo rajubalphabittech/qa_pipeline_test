@@ -1,6 +1,4 @@
-pipeline {
-  agent any
-  stages {
+node {
     stage('Example') {
         try {
             sh 'exit 1'
@@ -8,7 +6,6 @@ pipeline {
         catch (exc) {
             echo 'Something failed, I should sound the klaxons!'
             throw
-              }
+        }
     }
-  }
 }
