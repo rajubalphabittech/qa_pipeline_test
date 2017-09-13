@@ -1,6 +1,5 @@
 pipeline {
   agent any
-  notifyStarted()
   stages {
     stage('Setup') {
       steps {
@@ -21,7 +20,3 @@ pipeline {
   }
 }
 
-def notifyStarted() {
-   // send to Slack 
-   slackSend (color: '#FFFF00', message: "STARTED...")
- }
