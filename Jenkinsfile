@@ -1,21 +1,15 @@
 pipeline {
-    agent {
-    node {
-      label 'master'
-    }
-    
-  }
+    agent any 
+
     stages {
-        stage('Example') {
-            step {
-                script {
-                    try {
-                        sh 'ls -l'
-                    } catch (Exception e) {
-                        echo 'Something failed'
-                        throw e
-                    }
-                }
+        stage('Build') { 
+            steps { 
+                sh 'ls -l' 
+            }
+        }
+        stage('Test'){
+            steps {
+                sh 'date'
             }
         }
     }
