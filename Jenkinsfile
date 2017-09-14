@@ -1,11 +1,11 @@
 node {
     stage('Example') {
         try {
-            sh 'exit 1'
+            sh 'ls -l'
         }
-        catch (exc) {
-            echo 'Something failed, I should sound the klaxons!'
-            throw
+        catch (Exception e) {
+            echo 'Something failed'
+            throw e
         }
     }
 }
