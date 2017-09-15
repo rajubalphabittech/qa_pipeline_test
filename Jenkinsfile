@@ -3,10 +3,12 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        dir(path: '~/') {
-          sh 'ls -l > list.log'
+        dir(path: '~/')
+        script {
+          sh -l > list.log
         }
         
+        archiveArtifacts 'list.log'
       }
     }
   }
