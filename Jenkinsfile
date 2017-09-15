@@ -8,7 +8,7 @@ pipeline {
         dir(path: 'test/') {
           script {
             sh 'ls -l > list.log'
-            sh 'ls foo'
+            sh 'ls'
           }
         }
       }
