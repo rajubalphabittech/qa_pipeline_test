@@ -1,15 +1,23 @@
-pipeline {
-    agent any 
 
+pipeline {
+    agent any
     stages {
-        stage('Build') { 
-            steps { 
-                sh 'ls -l' 
+        stage('Buid') {
+            steps {
+                sh 'ls'
+            }
+         post {
+            success {
+                echo 'I succeeded!'
+            }
+            failure {
+                echo 'I failed :('
             }
         }
-        stage('Test'){
+          }
+         stage('Buid') {
             steps {
-                sh 'date'
+                sh 'ls'
             }
         }
     }
