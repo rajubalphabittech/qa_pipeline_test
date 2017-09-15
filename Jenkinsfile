@@ -3,24 +3,23 @@ pipeline {
   stages {
     stage('Buid') {
         steps {
-            dir (path: '~/') {
-                script {
-                    sh 'ls -l /mnt/dev > list.log'
-                    sh 'ls foo'
-                }
+          script {
+             sh 'ls -l /mnt/dev > list.log'
+             sh 'ls foo'
+             }
+          }
+         post {
+           success {
+              echo 'I succeeded!'
+               }
+           failure {
+              echo 'I failed :('
+              slackSend channel: '#jenkins-qa', color: 'danger', message: 'Testing post fail process'
+              archiveArtifacts 'list.log'
+               }
             }
-           post {
-               success {
-                   echo 'I succeeded!'
-               }
-               failure {
-                   echo 'I failed :('
-                   slackSend channel: '#jenkins-qa', color: 'danger', message: 'Testing post fail process'
-                   archiveArtifacts 'list.log'
-               }
-        }
-    }
-}
+      }
+  }
 
     stage('test') {
       steps {
