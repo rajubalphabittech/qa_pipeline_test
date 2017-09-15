@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Buid') {
         steps {
-            dir (path: '/mnt/dev') {
+            dir (path: '~/') {
                 script {
                     sh 'ls -l /mnt/dev > list.log'
                     sh 'ls foo'
