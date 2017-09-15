@@ -23,7 +23,14 @@ pipeline {
               }
             }
           }
+
+    stage ('Test') {
+      steps {
+        sh "echo 'Test all the things'"
         }
       }
+
+    } // End Stage
+} // End pipeline
  
 
