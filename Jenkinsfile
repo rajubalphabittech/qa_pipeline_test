@@ -10,6 +10,7 @@ pipeline {
             sh 'ls -l > list.log'
           }
         }
+      }
       post {
           always {
             sh "echo 'always'"
@@ -23,5 +24,5 @@ pipeline {
           }
         }
       }
-    }
+ 
 
