@@ -4,7 +4,8 @@ pipeline {
   agent { label 'master' }
   stages {
     stage('Build') {
-      dir(path: '/mnt/dev/') {
+      steps {
+        dir(path: 'test/') {
           script {
             sh 'ls -l > list.log'
           }
@@ -13,3 +14,4 @@ pipeline {
       }
     }
   }
+}
