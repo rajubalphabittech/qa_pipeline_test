@@ -7,14 +7,13 @@ pipeline {
         sh 'ls foo'
       }
       post {
-        always {
-          archiveArtifacts 'list.log'
-        }
         success {
           echo 'I succeeded!'
         }
         failure {
           echo 'I failed :('
+          slackSend channel: '#jenkins-qa', color: 'danger', message: 'Testing post fail process'
+          archiveArtifacts 'list.log'
         }
         
       }
