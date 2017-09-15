@@ -1,11 +1,13 @@
+#!/usr/bin/env groovy
+
 pipeline {
-  agent any
+  agent { label 'master' }
   stages {
     stage('Build') {
       steps {
         dir(path: '/mnt/dev/') {
           script {
-            sh -l > list.log
+            sh 'ls -l > list.log'
           }
         }
         archiveArtifacts 'list.log'
