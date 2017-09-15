@@ -15,7 +15,7 @@ pipeline {
                 failure {
                     echo 'I failed :('
                     slackSend channel: '#jenkins-qa', color: 'danger', message: 'Testing post fail process'
-                 archiveArtifacts 'list.log'
+                    archiveArtifacts 'list.log'
                 }
             }
         }
