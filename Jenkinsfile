@@ -15,7 +15,7 @@ pipeline {
             }
         }
           }
-         stage('Buid') {
+         stage('test') {
             steps {
                 sh 'ls'
             }
