@@ -9,18 +9,19 @@ pipeline {
           script {
             sh 'ls -l > list.log'
           }
-          post {
-            always {
-              sh "echo 'always'"
+        }
+      post {
+          always {
+            sh "echo 'always'"
                   }
-            failure {
-              // test image fails
-              archiveArtifacts 'list.log'
-              slackSend channel: '#jenkins-qa', color: 'danger', message: "${currentBuild.displayName}\nPro empty mesh - FAILED"
-                }
+          failure {
+            // test image fails
+            archiveArtifacts 'list.log'
+            slackSend channel: '#jenkins-qa', color: 'danger', message: "${currentBuild.displayName}\nPro empty mesh - FAILED"
               }
             }
           }
         }
       }
     }
+
