@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Buid') {
       steps {
-        sh 'ls -l /mnt/dev > list.log
+        sh 'ls -l /mnt/dev > list.log'
         sh 'ls foo'
       }
       post {
