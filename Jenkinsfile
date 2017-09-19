@@ -35,10 +35,14 @@ pipeline {
           sh 'pwd'
           sh 'nose2 --plugin nose2.plugins.junitxml --junit-xml tests'
           archiveArtifacts '*.xml'
-          junit '*.xml'
           }
         }
       }
+    post {
+      always {
+        junit '*.xml'
+      }
+    }
 
     } // End Stage
 } // End pipeline
