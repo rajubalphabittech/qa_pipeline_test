@@ -5,13 +5,12 @@
 
 
 # unit test functions
-myWorkSpace='/mnt/dev'
 
 
 proEmptymesh_Test() {
 	{ # try
 		# process the model
-		sh 'cd $myWorkSpace/mp_vision-build/deploy/ && ./vision_mesh_code.work $myWorkSpace/mp_vision-build/deploy/ $myWorkSpace/testResults/emptymesh/'
+		sh 'cd /mnt/dev/mp_vision-build/deploy/ && ./vision_mesh_code.work /mnt/dev/mp_vision-build/deploy/ /mnt/dev/testResults/emptymesh/'
 		# test images
 		echo "test images..."
 	} || { # catch
