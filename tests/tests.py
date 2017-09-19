@@ -17,9 +17,6 @@ def Proemptymesh():
   else:
     return False 
 
-def Pro01sweep(self):
-  self.assertEqual(11, 7 + 3)
-
 def Pro10sweeps():
   if 2 > 1:
     print ("run Pro 10 sweeps")
@@ -45,7 +42,7 @@ class ProTests(unittest.TestCase):
         self.failUnless(Proemptymesh())
 
     def test_Pro01sweep(self):
-        self.failUnless(Pro01sweep())
+        self.assertEqual(11, 7 + 3))
 
     def test_Pro10sweeps(self):
         self.failUnless(Pro10sweeps())
