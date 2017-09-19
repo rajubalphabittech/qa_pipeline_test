@@ -37,12 +37,12 @@ pipeline {
           archiveArtifacts '*.xml'
           }
         }
-      }
     post {
       always {
         junit '*.xml'
       }
     }
+  }
 
     } // End Stage
 } // End pipeline
