@@ -3,6 +3,11 @@
 pipeline {
   agent { label 'master' }
   stages {
+
+
+  // space is nice
+
+
     stage('Build') {
       steps {
         dir(path: 'test/') {
@@ -19,14 +24,15 @@ pipeline {
           failure {
             // test image fails
             archiveArtifacts 'list.log'
-            slackSend channel: '#jenkins-qa', color: 'danger', message: "${currentBuild.displayName}\nPro empty mesh - FAILED"
+            slackSend channel: '#jenkins-qa', color: 'danger', message: "${currentBuild.displayName}\nreport - FAILED"
               }
             }
           }
 
     stage ('Test') {
       steps {
-        sh "echo 'Test all the things'"
+        sh 'nose2 --plugin nose2.plugins.junitxml --junit-xml tests'
+        archiveArtifacts '*.xml'
         }
       }
 
