@@ -34,4 +34,4 @@ class SimpleTest(unittest.TestCase):
         self.failUnless(Proemptymesh())
 
     def test_01sweep(self):
-        self.failUnless(Prosweep())
+        self.failUnless(Pro01sweep())
