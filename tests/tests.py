@@ -9,7 +9,7 @@ except ImportError:
 
 
 
-def emptymesh():
+def Proemptymesh():
   if 2 > 1:
     print ("run emptymesh")
     time.sleep (3)
@@ -17,7 +17,7 @@ def emptymesh():
   else:
     return False 
 
-def 01sweep():
+def Pro01sweep():
   if 2 > 1:
     print ("run emptymesh")
     time.sleep (5)
@@ -31,7 +31,7 @@ def 01sweep():
 class SimpleTest(unittest.TestCase):
 
     def test_emptymesh(self):
-        self.failUnless(emptymesh())
+        self.failUnless(Proemptymesh())
 
     def test_01sweep(self):
-        self.failUnless(01sweep())
+        self.failUnless(Prosweep())
