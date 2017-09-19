@@ -35,15 +35,16 @@ pipeline {
           sh './proTests.sh'
           archiveArtifacts '*.xml'
           }
-        }
-    post {
+        } 
+      }   
+
+    } // End Stages
+
+  post {
       always {
         junit '*.xml'
       }
     }
-  }
-
-    } // End Stage
 } // End pipeline
  
 
