@@ -17,8 +17,8 @@ def Proemptymesh():
   else:
     return False 
 
-def Pro01sweep():
-  return False
+def Pro01sweep(self):
+  self.assertEqual(11, 7 + 3)
 
 def Pro10sweeps():
   if 2 > 1:
