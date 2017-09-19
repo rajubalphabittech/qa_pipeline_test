@@ -44,7 +44,7 @@ def Pro3014NE137th():
 
 
 # call the testcases
-class SimpleTest(unittest.TestCase):
+class ProTests(unittest.TestCase):
 
     def test_emptymesh(self):
         self.failUnless(Proemptymesh())
