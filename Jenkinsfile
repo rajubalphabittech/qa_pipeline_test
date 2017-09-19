@@ -13,7 +13,6 @@ pipeline {
         dir(path: 'tests/') {
           script {
             sh 'ls -l > list.log'
-            sh 'ls'
           }
         }
       }
