@@ -32,7 +32,7 @@ pipeline {
     stage ('Test') {
       steps {
         dir(path: 'tests/') {
-          sh './proTests.sh'
+          sh 'sudo ./proTests.sh'
           archiveArtifacts '*.xml'
           }
         } 
