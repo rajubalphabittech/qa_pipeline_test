@@ -10,7 +10,7 @@ pipeline {
 
     stage('Build') {
       steps {
-        dir(path: 'test/') {
+        dir(path: 'tests/') {
           script {
             sh 'ls -l > list.log'
             sh 'ls'
@@ -31,7 +31,7 @@ pipeline {
 
     stage ('Test') {
       steps {
-        dir(path: 'test/') {
+        dir(path: 'tests/') {
           sh 'pwd'
           sh 'cd test && nose2 --plugin nose2.plugins.junitxml --junit-xml tests'
           archiveArtifacts '*.xml'
