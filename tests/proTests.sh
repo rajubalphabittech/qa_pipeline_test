@@ -5,7 +5,7 @@
 
 
 # unit test functions
-myWorkSpace = '/mnt/dev'
+myWorkSpace='/mnt/dev'
 
 
 proEmptymesh_Test() {
