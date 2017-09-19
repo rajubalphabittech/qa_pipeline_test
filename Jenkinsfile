@@ -42,7 +42,8 @@ pipeline {
 
   post {
       always {
-        junit '*.xml'
+        archiveArtifacts 'results/*.xml'
+        junit 'results/*.xml'
       }
     }
 } // End pipeline
