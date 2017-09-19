@@ -33,7 +33,7 @@ pipeline {
       steps {
         dir(path: 'tests/') {
           sh 'pwd'
-          sh 'cd test && nose2 --plugin nose2.plugins.junitxml --junit-xml tests'
+          sh 'cd tests && nose2 --plugin nose2.plugins.junitxml --junit-xml tests'
           archiveArtifacts '*.xml'
           }
         }
