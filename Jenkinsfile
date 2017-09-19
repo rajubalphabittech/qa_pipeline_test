@@ -33,7 +33,8 @@ pipeline {
       steps {
         dir(path: 'tests/') {
           sh 'sudo ./proTests.sh'
-          archiveArtifacts '*.xml'
+          archiveArtifacts 'results/*.xml'
+          junit 'results/*.xml'
           }
         } 
       }   
