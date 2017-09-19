@@ -42,7 +42,7 @@ class ProTests(unittest.TestCase):
         self.failUnless(Proemptymesh())
 
     def test_Pro01sweep(self):
-        self.assertEqual(11, 7 + 3))
+        self.assertEqual(11, 7 + 3)
 
     def test_Pro10sweeps(self):
         self.failUnless(Pro10sweeps())
