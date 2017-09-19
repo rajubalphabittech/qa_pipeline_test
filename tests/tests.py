@@ -56,4 +56,4 @@ class SimpleTest(unittest.TestCase):
         self.failUnless(Pro10sweeps())
 
     def test_01sweep(self):
-        self.failUnless(Pro3014NE137th()
+        self.failUnless(Pro3014NE137th())
