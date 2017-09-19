@@ -10,7 +10,7 @@
 proEmptymesh_Test() {
 	{ # try
 		# process the model
-		sh 'sudo cd /mnt/dev/mp_vision-build/deploy/ && ./vision_mesh_code.work /mnt/dev/mp_vision-build/deploy/ /mnt/dev/testResults/emptymesh/'
+		cd /mnt/dev/mp_vision-build/deploy/ && ./vision_mesh_code.work /mnt/dev/mp_vision-build/deploy/ /mnt/dev/testResults/emptymesh/
 		# test images
 		echo "test images..."
 	} || { # catch
