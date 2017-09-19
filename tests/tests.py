@@ -18,7 +18,7 @@ def Proemptymesh():
     return False 
 
 def Pro01sweep():
-  if 2 > 1:
+  if 2 > 4:
     print ("run Pro 1 sweep")
     time.sleep (4)
     return True
