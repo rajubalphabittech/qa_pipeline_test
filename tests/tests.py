@@ -46,14 +46,14 @@ def Pro3014NE137th():
 # call the testcases
 class ProTests(unittest.TestCase):
 
-    def test_emptymesh(self):
+    def test_Proemptymesh(self):
         self.failUnless(Proemptymesh())
 
-    def test_01sweep(self):
+    def test_Pro01sweep(self):
         self.failUnless(Pro01sweep())
 
-    def test_emptymesh(self):
+    def test_Pro10sweeps(self):
         self.failUnless(Pro10sweeps())
 
-    def test_01sweep(self):
+    def test_Pro3014NE137th(self):
         self.failUnless(Pro3014NE137th())
