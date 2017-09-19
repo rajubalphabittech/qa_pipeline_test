@@ -35,6 +35,7 @@ pipeline {
           sh 'pwd'
           sh 'nose2 --plugin nose2.plugins.junitxml --junit-xml tests'
           archiveArtifacts '*.xml'
+          junit '*.xml'
           }
         }
       }
