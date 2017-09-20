@@ -3,6 +3,7 @@
 import random
 import time
 import subprocess
+from subprocess import Popen, PIPE
 
 try:
     import unittest2 as unittest
@@ -18,8 +19,8 @@ class ProTests(unittest.TestCase):
     def test_Pro10sweeps(self):
       try:
         print ("pass...start")
-        process = subprocess.check_output(['ls', '-l'], shell=True)
-        #process = subprocess.check_output(['cd', '/mnt/dev/mp_vision-build/deploy/', '&&', './vision_mesh_code.work', '/mnt/dev/mp_vision-build/deploy/', '/mnt/dev/testResults/emptymesh/'], shell=True)
+        cmd = "cd /mnt/dev/mp_vision-build/deploy/ && ./vision_mesh_code.work /mnt/dev/mp_vision-build/deploy/ /mnt/dev/testResults/emptymesh/"
+        process = subprocess.Popen(cmd, shell=True, stdout=PIPE, stderr=PIPE)
         print ("pass...end")
       except:
         print ("Fail")
