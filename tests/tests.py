@@ -18,8 +18,8 @@ class ProTests(unittest.TestCase):
     def test_Pro10sweeps(self):
       try:
         print ("pass...start")
-        process = subprocess.check_output(['cd', '/mnt/dev/mp_vision-build/deploy/', '&&', './vision_mesh_code.work', '/mnt/dev/mp_vision-build/deploy/', '/mnt/dev/testResults/emptymesh/'], shell=True)
-        #process = subprocess.Popen(['cd', '/mnt/dev/mp_vision-build/deploy/', '&&', './vision_mesh_code.work', '/mnt/dev/mp_vision-build/deploy/', '/mnt/dev/testResults/emptymesh/'], stdout=subprocess.PIPE)
+        process = subprocess.check_output(['ls', '-l'], shell=True)
+        #process = subprocess.check_output(['cd', '/mnt/dev/mp_vision-build/deploy/', '&&', './vision_mesh_code.work', '/mnt/dev/mp_vision-build/deploy/', '/mnt/dev/testResults/emptymesh/'], shell=True)
         print ("pass...end")
       except:
         print ("Fail")
