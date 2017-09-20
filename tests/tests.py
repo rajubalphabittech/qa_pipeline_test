@@ -11,17 +11,17 @@ except ImportError:
 
 
 # test cases steps
-def proEmptymesh():
-  try:
-    call(["cd", "/mnt/dev/mp_vision-build/deploy/", "&&", "./vision_mesh_code.work", "/mnt/dev/mp_vision-build/deploy/", "/mnt/dev/testResults/emptymesh/"])
-  except OSError:
-    return False
-  return True
-
+def Pro10sweeps():
+  if 2 > 1:
+    print ("run Pro 10 sweeps")
+    time.sleep (5)
+    return True
+  else:
+    return False 
 
 
 # call the testcases
 class ProTests(unittest.TestCase):
 
-    def test_proEmptymesh(self):
-        self.failUnless(proEmptymesh())
+    def test_Pro10sweeps(self):
+        self.failUnless(Pro10sweeps())
