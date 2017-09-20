@@ -14,14 +14,14 @@ except ImportError:
 def proEmptymesh():
   try:
     call(["cd", "/mnt/dev/mp_vision-build/deploy/", "&&", "./vision_mesh_code.work", "/mnt/dev/mp_vision-build/deploy/", "/mnt/dev/testResults/emptymesh/"])
-    return True
   except OSError:
     return False
+  return True
 
 
 
 # call the testcases
 class ProTests(unittest.TestCase):
 
-    def test_Pro10sweeps(self):
+    def test_proEmptymesh(self):
         self.failUnless(proEmptymesh())
