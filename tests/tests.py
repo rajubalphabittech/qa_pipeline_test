@@ -20,10 +20,10 @@ class ProTests(unittest.TestCase):
       try:
         process = subprocess.Popen(['cd', '/mnt/dev/mp_vision-build/deploy/', '&&', './vision_mesh_code.work', '/mnt/dev/mp_vision-build/deploy/', '/mnt/dev/testResults/emptymesh/'], stderr=subprocess.PIPE)
         process.wait()
-        self.failUnless(True)
+        return self.failUnless(True)
       except:
         print ("Fail")
-        self.failUnless(False)
+        return self.failUnless(False)
 
 
 
