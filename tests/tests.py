@@ -14,11 +14,8 @@ except ImportError:
 class ProTests(unittest.TestCase):
 
     def test_Pro10sweeps(self):
-      try:
+      with self.assertRaises(SomeException):
         call(["cd", "/mnt/dev/mp_vision-build/deploy/", "&&", "./vision_mesh_code.work", "/mnt/dev/mp_vision-build/deploy/", "/mnt/dev/testResults/emptymesh/"])
-        return False
-      except:
-        return False
 
 
 
