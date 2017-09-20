@@ -2,7 +2,7 @@
 
 import random
 import time
-from subprocess import call
+from subprocess
 
 try:
     import unittest2 as unittest
