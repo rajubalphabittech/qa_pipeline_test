@@ -36,8 +36,8 @@ pipeline {
         }
       post {
         always {
-          archiveArtifacts 'results/*.xml'
-          junit 'results/*.xml'
+          archiveArtifacts 'tests/results/*.xml'
+          junit 'tests/results/*.xml'
           }
         }
       }
