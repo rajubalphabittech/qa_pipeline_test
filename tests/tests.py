@@ -10,7 +10,6 @@ except ImportError:
     import unittest
 
 
-#process = subprocess.Popen(['cd', '/mnt/dev/mp_vision-build/deploy/', '&&', './vision_mesh_code.work', '/mnt/dev/mp_vision-build/deploy/', '/mnt/dev/testResults/emptymesh/'], stderr=subprocess.PIPE)
 
 
 # call the testcases
@@ -19,10 +18,8 @@ class ProTests(unittest.TestCase):
     def test_Pro10sweeps(self):
       try:
         print ("pass...start")
-        process = subprocess.Popen(['cd', '/mnt/dev/mp_vision-build/deploy/', '&&', './vision_mesh_code.work', '/mnt/dev/mp_vision-build/deploy/', '/mnt/dev/testResults/emptymesh/'], stdout=subprocess.PIPE)
-        process.wait()
-        out, err = process.communicate()
-        print(out)
+        process = subprocess.check_output(['cd', '/mnt/dev/mp_vision-build/deploy/', '&&', './vision_mesh_code.work', '/mnt/dev/mp_vision-build/deploy/', '/mnt/dev/testResults/emptymesh/'], shell=True)
+        #process = subprocess.Popen(['cd', '/mnt/dev/mp_vision-build/deploy/', '&&', './vision_mesh_code.work', '/mnt/dev/mp_vision-build/deploy/', '/mnt/dev/testResults/emptymesh/'], stdout=subprocess.PIPE)
         print ("pass...end")
       except:
         print ("Fail")
