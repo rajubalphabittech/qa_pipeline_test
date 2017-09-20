@@ -21,6 +21,8 @@ class ProTests(unittest.TestCase):
         print ("pass...start")
         process = subprocess.Popen(['cd', '/mnt/dev/mp_vision-build/deploy/', '&&', './vision_mesh_code.work', '/mnt/dev/mp_vision-build/deploy/', '/mnt/dev/testResults/emptymesh/'], stderr=subprocess.PIPE)
         process.wait()
+        output = process.stderr.read().decode("utf-8").rstrip()
+        print (output)
         print ("pass...end")
       except:
         print ("Fail")
