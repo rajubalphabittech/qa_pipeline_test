@@ -23,3 +23,8 @@ class ProTests(unittest.TestCase):
 
     def test_Pro10sweeps(self):
         self.failUnless(Pro10sweeps())
+
+
+
+if __name__ == '__main__':
+    unittest.main()
