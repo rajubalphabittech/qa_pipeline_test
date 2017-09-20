@@ -243,7 +243,7 @@ jshuFinalize() {
 	test_file="${jshu_resultDir}/TEST_${jshu_pkgname}.${jshu_suite}.xml"
 	## testsuite block
 	
-	echo "<testsuite failures=\"${failed}\" errors=\"$errors\" tests=\"$tests\" skipped=\"${skipped}\" name=\"${jshu_pkgname}.${jshu_suite}\" time=\"${total}\">" >"${test_file}"
+	echo "<testsuite errors=\"$errors\" failures=\"${failed}\" name=\"${jshu_pkgname}.${jshu_suite}\" skipped=\"${skipped}\" tests=\"$tests\" time=\"${total}\">" >"${test_file}"
 	cat $jshu_content_file >>"$test_file"
 	echo "</testsuite>" >>"$test_file"
 	rm -f $jshu_content_file
@@ -375,13 +375,14 @@ writeTestContent()  {
 	jshuSafeContent $_jshu_wtc_outf
 	## testcase tag
 	_jshu_wtc_content="
-    <testcase assertions=\"1\" name=\"$_jshu_wtc_test_name\" time=\"$_jshu_wtc_time\">
-    
-    <system-out>
+	<testcase classname="tests.Pro" name=\"$_jshu_wtc_test_name\" time=\"$_jshu_wtc_time\">
+    <system-err />
+  	</testcase>
+	</testsuite>
+"
 
-    </system-out>
-    </testcase>
-  "
+
+
     echo "$_jshu_wtc_content" >>$jshu_content_file
     unset _jshu_wtc_test_name _jshu_wtc_time _jshu_wtc_fail _jshu_wtc_outf _jshu_wtc_out _jshu_wtc_content
 }
