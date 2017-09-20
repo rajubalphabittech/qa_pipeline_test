@@ -31,7 +31,7 @@ pipeline {
     stage ('Test') {
       steps {
         dir(path: 'tests/') {
-          sh 'sudo ./proTests.sh'
+          sh 'nose2 --plugin nose2.plugins.junitxml --junit-xml tests'
           archiveArtifacts 'results/*.xml'
           junit 'results/*.xml'
           }
