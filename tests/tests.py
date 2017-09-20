@@ -10,19 +10,16 @@ except ImportError:
     import unittest
 
 
-# test cases steps
-def Pro10sweeps():
-  try:
-    call(["cd", "/mnt/dev/mp_vision-build/deploy/", "&&", "./vision_mesh_code.work", "/mnt/dev/mp_vision-build/deploy/", "/mnt/dev/testResults/emptymesh/"])
-  except:
-    return False 
-
-
 # call the testcases
 class ProTests(unittest.TestCase):
 
-    def test_Pro10sweeps(self):
-        self.failUnless(Pro10sweeps())
+    def test_Pro10sweeps():
+      try:
+        call(["cd", "/mnt/dev/mp_vision-build/deploy/", "&&", "./vision_mesh_code.work", "/mnt/dev/mp_vision-build/deploy/", "/mnt/dev/testResults/emptymesh/"])
+        return False
+      except:
+        return False
+
 
 
 
