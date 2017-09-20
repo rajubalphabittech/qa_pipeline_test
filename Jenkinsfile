@@ -32,20 +32,17 @@ pipeline {
       steps {
         dir(path: 'tests/') {
           sh './proTests.sh'
+          }
+        }
+      post {
+        always {
           archiveArtifacts 'results/*.xml'
           junit 'results/*.xml'
           }
-        } 
-      }   
+        }
+      }
 
     } // End Stages
-
-  post {
-      always {
-        archiveArtifacts 'results/*.xml'
-        junit 'results/*.xml'
-      }
-    }
 } // End pipeline
  
 
