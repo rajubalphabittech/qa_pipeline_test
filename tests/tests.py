@@ -22,6 +22,7 @@ class ProTests(unittest.TestCase):
         process.wait()
         self.failUnless(True)
       except:
+        print ("Fail")
         self.failUnless(False)
 
 
