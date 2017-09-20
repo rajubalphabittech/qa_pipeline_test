@@ -19,7 +19,7 @@ class ProTests(unittest.TestCase):
     def test_Pro10sweeps(self):
       try:
         print ("pass...start")
-        cmd = "cd /mnt/dev/mp_vision-build/deploy/ && ./vision_mesh_code.work /mnt/dev/mp_vision-build/deploy/ /mnt/dev/testResults/emptymesh/"
+        cmd = "sudo cd /mnt/dev/mp_vision-build/deploy/ && ./vision_mesh_code.work /mnt/dev/mp_vision-build/deploy/ /mnt/dev/testResults/emptymesh/"
         process = subprocess.Popen(cmd, shell=True, stdout=PIPE, stderr=PIPE)
         process.wait()
         out, err = process.communicate()
