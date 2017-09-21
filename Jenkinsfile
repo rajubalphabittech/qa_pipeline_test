@@ -31,7 +31,7 @@ pipeline {
     stage ('Test') {
       steps {
         dir(path: 'tests/') {
-          sh '/bin/sh -xe ./proTest2.sh'
+          sh '/bin/sh -xe ./proTest.sh'
           }
         }
       post {
