@@ -129,13 +129,6 @@ juLog() {
     <testcase name=\"$name\" status=\"run\" time=\"$time\" >
     $failure
     $error
-    <system-out>
-    </system-out>
-    <system-err>
-<![CDATA[
-$errMsg
-]]>
-    </system-err>
     </testcase>
   "
   ## testsuite block
