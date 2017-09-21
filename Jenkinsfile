@@ -31,13 +31,13 @@ pipeline {
     stage ('Test') {
       steps {
         dir(path: 'tests/') {
-          sh 'nose2 --plugin nose2.plugins.junitxml --junit-xml tests'
+          sh '.proTest2.sh'
           }
         }
       post {
         always {
-          archiveArtifacts 'tests/*.xml'
-          junit 'tests/*.xml'
+          archiveArtifacts 'tests/results/*.xml'
+          junit 'tests/results/*.xml'
           }
         }
       }
