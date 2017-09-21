@@ -25,8 +25,8 @@ class ProTests(unittest.TestCase):
         output = process.stderr.read()
         print (output)
         print ("test image")
-        cmd = "cd /mnt/dev/qa/automation/jenkins/ && ./imageCompare.sh '/mnt/dev' .1 'pan/high' '72e2e8bdf87c45e29d023e7e18af1cc1_skybox1.jpg' '01sweep'"
-        process = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE)
+        cmd2 = "cd /mnt/dev/qa/automation/jenkins/ && ./imageCompare.sh '/mnt/dev' .1 'pan/high' '72e2e8bdf87c45e29d023e7e18af1cc1_skybox1.jpg' '01sweep'"
+        process = subprocess.Popen(cmd2, shell=True, stdout=subprocess.PIPE)
         process.wait()
         output = process.stderr.read()
         print (output)
