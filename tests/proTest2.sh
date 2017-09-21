@@ -3,6 +3,8 @@
 #### Include the library
 . `dirname $0`/sh2ju.sh
 
+#### Clean old reports
+juLogClean
 
 # Test cases
 proEmptymesh() {
