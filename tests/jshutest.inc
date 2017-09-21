@@ -376,7 +376,6 @@ writeTestContent()  {
 	## testcase tag
 	_jshu_wtc_content="
 	<testcase classname=\"tests.Pro\" name=\"$_jshu_wtc_test_name\" time=\"$_jshu_wtc_time\">
-    <system-err />
   	</testcase>
 "
 
