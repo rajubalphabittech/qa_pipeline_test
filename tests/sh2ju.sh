@@ -57,7 +57,7 @@ juLog() {
   ya=""; icase=""
   while [ -z "$ya" ]; do  
     case "$1" in
-  	  -name=*)   name=$(printf "%.2d" $tests)-$(echo "$1" | sed -e 's/-name=//');   shift;;
+      -name=*)   name=$(printf "%.2d" $tests)-$(echo "$1" | sed -e 's/-name=//');   shift;;
       -ierror=*) ereg=`echo "$1" | sed -e 's/-ierror=//'`; icase="-i"; shift;;
       -error=*)  ereg=`echo "$1" | sed -e 's/-error=//'`;  shift;;
       *)         ya=1;;
@@ -93,7 +93,7 @@ juLog() {
   rm -f $errfile
   endtime=$($date +%s.%N)
   echo "+++ exit code: $exitcode" | tee -a $outf
-
+  
   # set the appropriate error, based in the exit code and the regex
   [ $exitcode != 0 ] && err=1 || err=0
   out=$(cat $outf | sed -e 's/^\([^+]\)/| \1/g')
@@ -103,14 +103,12 @@ juLog() {
   fi
   echo "+++ error: $err"         | tee -a $outf
   rm -f $outf
-
   errMsg=`cat $errf`
   rm -f $errf
   [ $err = 0 -a ! -z "$errMsg" ] && failed=1 || failed=0
-
   # calculate vars
   tests=$(($tests + 1))
-  failures=$(($errors + $err))
+  failures=$(($failures + $failed))
   errors=$(($errors + $err))
   time=$(echo "$endtime - $starttime" | bc -l)
   totaltime=$(echo "$totaltime + $time" | bc -l)
@@ -131,7 +129,7 @@ juLog() {
   "
   ## testsuite block
   cat <<EOF > "$juDIR/TEST-$suite.xml"
-  <testsuite errors="$errors" failures="$failures" name="$suite" tests="$tests" time="$totaltime" >
+  <testsuite name="$suite" tests="$tests" failures="$failures" errors="$errors" time="$totaltime" timestamp="$($date -Iseconds | cut -d+ -f1)">
     $content
   </testsuite>
 EOF
