@@ -7,7 +7,7 @@
 # unit test functions
 
 
-proEmptymesh_Test() {
+Emptymesh_FAIL_Test() {
 	{ # try
 		# process the model
 		#cd /mnt/dev/mp_vision-build/deploy/ && ./vision_mesh_code.work /mnt/dev/mp_vision-build/deploy/ /mnt/dev/testResults/emptymesh/
@@ -19,7 +19,7 @@ proEmptymesh_Test() {
 	return ${jshuPASS}	
 }
 
-pro2Emptymesh_Test() {
+Emptymesh_PASS_Test() {
 	{ # try
 		# process the model
 		#cd /mnt/dev/mp_vision-build/deploy/ && ./vision_mesh_code.work /mnt/dev/mp_vision-build/deploy/ /mnt/dev/testResults/emptymesh/
