@@ -431,7 +431,7 @@ jshu_run_test()
 	
 	# run the shell function
 	_jshu_rt_startTime=$(_jshuDate)
-	${_jshu_rt_func_name} 2>&1 | tee "${_jshu_rt_script_output}"
+	${_jshu_rt_func_name} | tee "${_jshu_rt_script_output}"
     _jshu_result=$?
 	_jshu_rt_endTime=$(_jshuDate)
     
