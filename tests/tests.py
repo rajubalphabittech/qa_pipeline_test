@@ -20,11 +20,10 @@ class ProTests(unittest.TestCase):
       try:
         print ("pass...start")
         cmd = "cd /mnt/dev/mp_vision-build/deploy/ && ./vision_mesh_code.work /mnt/dev/mp_vision-build/deploy/ /mnt/dev/testResults/emptymesh/"
-        process = subprocess.Popen(cmd, shell=True, stdout=PIPE, stderr=PIPE)
+        process = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE)
         process.wait()
-        out, err = process.communicate()
-        print ("Return code: ", process.returncode)
-        print (out.rstrip(), err.rstrip())
+        output = process.stderr.read()
+        print (output)
         print ("pass...end")
       except:
         print ("Fail")
