@@ -20,15 +20,14 @@ class ProTests(unittest.TestCase):
       try:
         print ("process image")
         cmd = "cd /mnt/dev/mp_vision-build/deploy/ && ./vision_mesh_code.work /mnt/dev/mp_vision-build/deploy/ /mnt/dev/testResults/emptymesh/"
-        process = subprocess.call(cmd, shell=True, stdout=subprocess.PIPE)
-        output = process.stdout.read()
-        print (output)
+        process = subprocess.check_call(cmd, shell=True, stdout=subprocess.PIPE)
+        #output = process.stdout.read()
+        #print (output)
 
         print ("test image")
         cmd = "cd /mnt/dev/qa/automation/jenkins/ && ./imageCompare.sh '/mnt/dev' .1 'pan/high' '72e2e8bdf87c45e29d023e7e18af1cc1_skybox1.jpg' '01sweep'"
-        process = subprocess.call(cmd, shell=True, stdout=subprocess.PIPE)
-        output = process.stderr.read()
-        print (output)
+        process = subprocess.check_call(cmd, shell=True, stdout=subprocess.PIPE)
+
       except:
         return False
 
