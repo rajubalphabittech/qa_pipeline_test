@@ -444,7 +444,7 @@ jshu_run_test()
     # look for regex in output for failure
     if [ $_jshu_result -eq 0 ] ; then
 		if [ -n "$ereg" ]; then
-			H=`cat "${_jshu_rt_script_output}" | sed -e 's/^\([^+]\)/| \1/g' | egrep $icase "$ereg"`
+			H=`tail -10 "${_jshu_rt_script_output}" | sed -e 's/^\([^+]\)/| \1/g' | egrep $icase "$ereg"`
 			[ -n "$H" ] && _jshu_result=1 && jshu_errmsg="Regex Test failure"
 		fi
 	fi
@@ -455,16 +455,16 @@ jshu_run_test()
             jshuRecordResult $_jshu_result ${_jshu_rt_test_name} "Failed to run ${_jshu_rt_test_name}"
             time=`echo "$_jshu_rt_endTime - $_jshu_rt_startTime" | bc -l`
             total=`echo "$total + $time" | bc -l`
-            # writeTestContent ${_jshu_rt_test_name} "${time}" "${jshu_failure_msg}" "${_jshu_rt_script_output}"
-            writeTestContent ${_jshu_rt_test_name} "${time}" "${jshu_failure_msg}"
+            writeTestContent ${_jshu_rt_test_name} "${time}" "${jshu_failure_msg}" "${_jshu_rt_script_output}"
+            #writeTestContent ${_jshu_rt_test_name} "${time}" "${jshu_failure_msg}"
         fi
     else
         jshuRecordResult $_jshu_result ${_jshu_rt_test_name} "${jshu_errmsg}"
         let tests=$tests+1
         time=`echo "$_jshu_rt_endTime - $_jshu_rt_startTime" | bc -l`
         total=`echo "$total + $time" | bc -l`
-        # writeTestContent ${_jshu_rt_test_name} "${time}" "${jshu_failure_msg}" "${_jshu_rt_script_output}"
-        writeTestContent ${_jshu_rt_test_name} "${time}" "${jshu_failure_msg}"
+        writeTestContent ${_jshu_rt_test_name} "${time}" "${jshu_failure_msg}" "${_jshu_rt_script_output}"
+        #writeTestContent ${_jshu_rt_test_name} "${time}" "${jshu_failure_msg}"
     fi
     cat "${_jshu_rt_script_output}"
 	rm -f "${_jshu_rt_script_output}"
