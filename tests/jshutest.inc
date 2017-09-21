@@ -243,7 +243,7 @@ jshuFinalize() {
 	test_file="${jshu_resultDir}/TEST_${jshu_pkgname}.${jshu_suite}.xml"
 	## testsuite block
 	
-	echo "<testsuite errors=\"$errors\" failures=\"${failed}\" name=\"${jshu_pkgname}.${jshu_suite}\" skipped=\"${skipped}\" tests=\"$tests\" time=\"${total}\">" >"${test_file}"
+	echo "<testsuite errors=\"$errors\" failures=\"${failed}\" name=\"Pro test jobs\" skipped=\"${skipped}\" tests=\"$tests\" time=\"${total}\">" >"${test_file}"
 	cat $jshu_content_file >>"$test_file"
 	echo "</testsuite>" >>"$test_file"
 	rm -f $jshu_content_file
