@@ -374,8 +374,9 @@ writeTestContent()  {
 	fi
 	jshuSafeContent $_jshu_wtc_outf
 	## testcase tag
+	## make classname a var at later date
 	_jshu_wtc_content="
-    <testcase assertions=\"1\" name=\"$_jshu_wtc_test_name\" time=\"$_jshu_wtc_time\">
+    <testcase classname=\"tests.SmokeTests\" assertions=\"1\" name=\"$_jshu_wtc_test_name\" time=\"$_jshu_wtc_time\">
     $_jshu_wtc_fail
     <system-out>
 <![CDATA[
