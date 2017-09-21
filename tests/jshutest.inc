@@ -375,9 +375,15 @@ writeTestContent()  {
 	jshuSafeContent $_jshu_wtc_outf
 	## testcase tag
 	_jshu_wtc_content="
-	<testcase classname=\"tests.Pro\" name=\"$_jshu_wtc_test_name\" time=\"$_jshu_wtc_time\">
-  	</testcase>
-"
+    <testcase assertions=\"1\" name=\"$_jshu_wtc_test_name\" time=\"$_jshu_wtc_time\">
+    $_jshu_wtc_fail
+    <system-out>
+<![CDATA[
+$_jshu_wtc_out
+]]>
+    </system-out>
+    </testcase>
+  "
 
 
 
