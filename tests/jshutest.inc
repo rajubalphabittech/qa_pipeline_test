@@ -432,6 +432,7 @@ jshu_run_test()
 	# run the shell function
 	_jshu_rt_startTime=$(_jshuDate)
 	${_jshu_rt_func_name} &> "${_jshu_rt_script_output}"
+	cat "${_jshu_rt_script_output}"
     _jshu_result=$?
 	_jshu_rt_endTime=$(_jshuDate)
     
@@ -458,7 +459,6 @@ jshu_run_test()
         total=`echo "$total + $time" | bc -l`
         writeTestContent ${_jshu_rt_test_name} "${time}" "${jshu_failure_msg}" "${_jshu_rt_script_output}"
     fi
-    cat "${_jshu_rt_script_output}"
 	rm -f "${_jshu_rt_script_output}"
 	
 	unset _jshu_rt_func_name _jshu_rt_script_output _jshu_rt_test_name
