@@ -18,15 +18,17 @@ class ProTests(unittest.TestCase):
 
     def test_Pro10sweeps(self):
       try:
-        print ("pass...start")
         cmd = "cd /mnt/dev/mp_vision-build/deploy/ && ./vision_mesh_code.work /mnt/dev/mp_vision-build/deploy/ /mnt/dev/testResults/emptymesh/"
         process = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE)
         process.wait()
         output = process.stderr.read()
         print (output)
-        print ("pass...end")
+        cmd = "cd /mnt/dev/qa/automation/jenkins/ && ./imageCompare.sh '/mnt/dev' .1 'pan/high' '72e2e8bdf87c45e29d023e7e18af1cc1_skybox1.jpg' '01sweep'"
+        process = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE)
+        process.wait()
+        output = process.stderr.read()
+        print (output)
       except:
-        print ("Fail")
         return False
 
       return True
