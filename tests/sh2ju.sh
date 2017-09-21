@@ -93,7 +93,7 @@ juLog() {
   rm -f $errfile
   endtime=$($date +%s.%N)
   echo "+++ exit code: $exitcode" | tee -a $outf
-  
+
   # set the appropriate error, based in the exit code and the regex
   [ $exitcode != 0 ] && err=1 || err=0
   out=$(cat $outf | sed -e 's/^\([^+]\)/| \1/g')
@@ -110,7 +110,7 @@ juLog() {
 
   # calculate vars
   tests=$(($tests + 1))
-  failures=$(($failures + $failed))
+  failures=$(($errors + $err))
   errors=$(($errors + $err))
   time=$(echo "$endtime - $starttime" | bc -l)
   totaltime=$(echo "$totaltime + $time" | bc -l)
