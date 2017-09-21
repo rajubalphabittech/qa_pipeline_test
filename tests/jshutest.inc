@@ -444,8 +444,9 @@ jshu_run_test()
     # look for regex in output for failure
     if [ $_jshu_result -eq 0 ] ; then
 		if [ -n "$ereg" ]; then
-			H=`tail -10 "${_jshu_rt_script_output}" | sed -e 's/^\([^+]\)/| \1/g' | egrep $icase "$ereg"`
+			H=`tail -5 "${_jshu_rt_script_output}" | sed -e 's/^\([^+]\)/| \1/g' | egrep $icase "$ereg"`
 			[ -n "$H" ] && _jshu_result=1 && jshu_errmsg="Regex Test failure"
+			tail -5 "${_jshu_rt_script_output}"
 		fi
 	fi
 	
