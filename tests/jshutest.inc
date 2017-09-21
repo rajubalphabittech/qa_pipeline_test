@@ -240,7 +240,7 @@ jshuInit() {
 
 # Write up the tests result file
 jshuFinalize() {
-	test_file="${jshu_resultDir}/TEST_${jshu_pkgname}.${jshu_suite}.xml"
+	test_file="${jshu_resultDir}/TEST.${jshu_suite}.xml"
 	## testsuite block
 	
 	echo "<testsuite errors=\"$errors\" failures=\"${failed}\" name=\"Pro test jobs\" skipped=\"${skipped}\" tests=\"$tests\" time=\"${total}\">" >"${test_file}"
