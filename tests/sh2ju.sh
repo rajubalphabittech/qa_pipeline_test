@@ -127,8 +127,6 @@ juLog() {
   ## testcase tag
   content="$content
     <testcase name=\"$name\" status=\"run\" time=\"$time\" >
-    $failure
-    $error
     </testcase>
   "
   ## testsuite block
