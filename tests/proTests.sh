@@ -19,17 +19,7 @@ Emptymesh_FAIL_Test() {
 	return ${jshuPASS}	
 }
 
-Emptymesh_PASS_Test() {
-	{ # try
-		# process the model
-		#cd /mnt/dev/mp_vision-build/deploy/ && ./vision_mesh_code.work /mnt/dev/mp_vision-build/deploy/ /mnt/dev/testResults/emptymesh/
-		# test images
-		cd /mnt/dev/qa/automation/jenkins/ && ./imageCompare.sh '/mnt/dev' 4 'pan/high' '72e2e8bdf87c45e29d023e7e18af1cc1_skybox1.jpg' '01sweep'
-	} || { # catch
-		return ${jshuFAIL}
-	}
-	return ${jshuPASS}	
-}
+
 
 
 ##############################################################
