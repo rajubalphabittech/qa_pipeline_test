@@ -303,7 +303,11 @@ jshuSafeContent() {
     tr -cd '\11\12\15\40-\176' <$_jshu_sc_savf >$_jshu_wtc_outf
 
     #trim
-    jshu_wtc_outf=$(echo "$_jshu_wtc_outf" | tail -n20)
+    jshu_wtc_outf=$(echo $_jshu_wtc_outf | tail -n20)
+
+    echo $_jshu_wtc_outf > /mnt/dev/testout.log
+
+
 
     unset _jshu_sc_outf _jshu_sc_savf
 }
