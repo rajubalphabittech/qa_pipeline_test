@@ -376,7 +376,7 @@ writeTestContent()  {
 	jshuSafeContent $_jshu_wtc_outf
 	
 	echo $_jshu_wtc_out > /mnt/dev/testout.log
-	_jshu_wtc_out=$(echo "$_jshu_wtc_out" | tail -n5)
+	_jshu_wtc_out=$(echo "$_jshu_wtc_out" | tail -n2)
 
 	## testcase tag
 	_jshu_wtc_content="
