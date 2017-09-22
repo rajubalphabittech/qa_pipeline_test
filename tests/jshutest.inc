@@ -306,7 +306,7 @@ jshuSafeContent() {
     tail -10 $_jshu_wtc_outf > $_jshu_wtc_outf
 
     echo $_jshu_wtc_outf
-
+    cat $_jshu_wtc_outf > /home/zack/test_output.txt
     unset _jshu_sc_outf _jshu_sc_savf
 }
 
