@@ -7,7 +7,7 @@
 # unit test functions
 
 
-proEemptyMesh() {
+proEemptyMesh_Test() {
 	{ # try
 		# process the model
 		cd /mnt/dev/mp_vision-build/deploy/ && ./vision_mesh_code.work /mnt/dev/mp_vision-build/deploy/ /mnt/dev/testResults/emptymesh/ &&
