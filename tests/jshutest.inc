@@ -302,7 +302,8 @@ jshuSafeContent() {
     /bin/cp $_jshu_sc_outf $_jshu_sc_savf
     tr -cd '\11\12\15\40-\176' <$_jshu_sc_savf >$_jshu_wtc_outf
 
-    # cat output to review
+    # trim and save outout
+    tail -10 $_jshu_wtc_outf > $_jshu_wtc_outf
     cat $_jshu_wtc_outf > /mnt/dev/test_output.txt
     unset _jshu_sc_outf _jshu_sc_savf
 }
