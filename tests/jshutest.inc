@@ -382,6 +382,7 @@ writeTestContent()  {
 	## make classname a var at later date
 	_jshu_wtc_content="
     <testcase classname=\"tests.SmokeTests\" assertions=\"1\" name=\"$_jshu_wtc_test_name\" time=\"$_jshu_wtc_time\">
+    _jshu_wtc_fail=$(echo $_jshu_wtc_fail | tail -n20)
     $_jshu_wtc_fail
     <system-out>
 <![CDATA[
