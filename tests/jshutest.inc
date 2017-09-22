@@ -304,7 +304,9 @@ jshuSafeContent() {
 
     # trim
     tail -10 $_jshu_wtc_outf > $_jshu_wtc_outf
-    
+
+    echo $_jshu_wtc_outf
+
     unset _jshu_sc_outf _jshu_sc_savf
 }
 
