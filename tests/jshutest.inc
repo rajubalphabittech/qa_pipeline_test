@@ -373,16 +373,12 @@ writeTestContent()  {
 	else
 		_jshu_wtc_out="No such file ($_jshu_wtc_outf) found. Could not read test output."
 	fi
-	#jshuSafeContent $_jshu_wtc_outf
-	#trim
-    jshu_wtc_outf=$(echo $_jshu_wtc_outf | tail -n20)
-
+	jshuSafeContent $_jshu_wtc_outf
+	
+	echo $_jshu_wtc_fail > /mnt/dev/testfail.log
+	echo $$_jshu_wtc_out > /mnt/dev/testout.log
 
 	## testcase tag
-	## make classname a var at later date
-
-	_jshu_wtc_fail=$(echo $_jshu_wtc_fail | tail -n20)
-	echo $_jshu_wtc_fail > /mnt/dev/testout.log
 	_jshu_wtc_content="
     <testcase classname=\"tests.SmokeTests\" assertions=\"1\" name=\"$_jshu_wtc_test_name\" time=\"$_jshu_wtc_time\">
     $_jshu_wtc_fail
@@ -393,11 +389,9 @@ $_jshu_wtc_out
     </system-out>
     </testcase>
   "
-
-
-
     echo "$_jshu_wtc_content" >>$jshu_content_file
     unset _jshu_wtc_test_name _jshu_wtc_time _jshu_wtc_fail _jshu_wtc_outf _jshu_wtc_out _jshu_wtc_content
+}wtc_test_name _jshu_wtc_time _jshu_wtc_fail _jshu_wtc_outf _jshu_wtc_out _jshu_wtc_content
 }
 
 # Extract from script list of functions to run tests against.
