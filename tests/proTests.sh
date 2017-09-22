@@ -1,20 +1,50 @@
-#!/usr/bin/env bats
+#!/bin/bash 
+
+# source the unit test for scripts functions
+. jshutest.inc
 
 
-@test "no arguments prints usage instructions" {
-  run bats
-  [ $status -eq 1 ]
-  [ $(expr "${lines[1]}" : "Usage:") -ne 0 ]
+# unit test functions
+
+
+Emptymesh_FAIL_Test() {
+	{ # try
+		# process the model
+		cd /mnt/dev/mp_vision-build/deploy/ && ./vision_mesh_code.work /mnt/dev/mp_vision-build/deploy/ /mnt/dev/testResults/emptymesh/
+		# test images
+		#cd /mnt/dev/qa/automation/jenkins/ && ./imageCompare.sh '/mnt/dev' .1 'pan/high' '72e2e8bdf87c45e29d023e7e18af1cc1_skybox1.jpg' '01sweep'
+	} || { # catch
+		return ${jshuFAIL}
+	}
+	return ${jshuPASS}	
 }
 
-@test "-v and --version print version number" {
-  run bats -v
-  [ $status -eq 0 ]
-  [ $(expr "$output" : "Bats [0-9][0-9.]*") -ne 0 ]
+Emptymesh_PASS_Test() {
+	{ # try
+		# process the model
+		#cd /mnt/dev/mp_vision-build/deploy/ && ./vision_mesh_code.work /mnt/dev/mp_vision-build/deploy/ /mnt/dev/testResults/emptymesh/
+		# test images
+		cd /mnt/dev/qa/automation/jenkins/ && ./imageCompare.sh '/mnt/dev' 4 'pan/high' '72e2e8bdf87c45e29d023e7e18af1cc1_skybox1.jpg' '01sweep'
+	} || { # catch
+		return ${jshuFAIL}
+	}
+	return ${jshuPASS}	
 }
 
-@test "-h and --help print help" {
-  run bats -h
-  [ $status -eq 0 ]
-  [ "${#lines[@]}" -gt 3 ]
-}
+
+##############################################################
+# main
+##############################################################
+# initialize testsuite
+jshuInit
+
+# run unit tests on script
+jshuRunTests
+
+# result summary
+jshuFinalize
+
+echo Done.
+echo
+let tot=failed+errors
+exit $tot
