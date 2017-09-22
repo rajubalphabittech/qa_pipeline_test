@@ -31,13 +31,13 @@ pipeline {
     stage ('Test') {
       steps {
         dir(path: 'tests/') {
-          sh './proTests.sh -u'
+          sh './proTests.sh'
           }
         }
       post {
         always {
-          archiveArtifacts 'tests/*.xml'
-          junit 'tests/*.xml'
+          archiveArtifacts 'tests/results/*.xml'
+          junit 'tests/results/*.xml'
           }
         }
       }
