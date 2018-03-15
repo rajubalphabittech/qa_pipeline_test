@@ -27,8 +27,12 @@ pipeline {
                     }
                 }
             
-            
-            } // End parallel
+            post {
+              always {
+                echo 'Close test run for Regression Tests'
+              }
+            }
+          } // End parallel
         }
     }
 }
