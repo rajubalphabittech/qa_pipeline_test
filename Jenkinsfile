@@ -7,8 +7,10 @@ pipeline {
             agent { label "master" }
               steps {
                     echo 'Pro tests started'
-                    testrun_id = '1234'
-                    writeFile file: 'automation/jenkins/testrun_id', text: "${testrun_id}"
+                    script {
+                      testrun_id = '1234'
+                      writeFile file: 'automation/jenkins/testrun_id', text: "${testrun_id}"
+                      }
                     }
               post {
                 success {
