@@ -23,6 +23,10 @@ pipeline {
               agent { label "master" }
                 steps {
                       echo 'Pro2 tests started'
+                      script {
+                        testrun_id = '1234'
+                        writeFile file: 'testrun_id', text: "${testrun_id}"
+                        }
                       }
                 post {
                    success {
