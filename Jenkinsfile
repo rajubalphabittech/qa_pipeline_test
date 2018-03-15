@@ -28,13 +28,13 @@ pipeline {
                 }
             } // End parallel
         }
-      post {
-        always {
-          echo 'Close test run for Regression Tests'
-          sh 'echo "close the run..."'
-            }
-          } // End of stage
-    }
+      stage ('Close test run') {
+        steps {
+          echo 'echo "Close the regression test run..."'
+        }
+      }   
+    } // End of stage
+  }
 }
  
 
