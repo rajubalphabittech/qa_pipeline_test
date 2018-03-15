@@ -1,48 +1,36 @@
-#!/usr/bin/env groovy
-
 pipeline {
-  agent { label 'master' }
-  stages {
-
-
-  // space is nice
-
-
-    stage('Build') {
-      steps {
-        dir(path: 'tests/') {
-          script {
-            sh 'ls -l > list.log'
-          }
-        }
-      }
-      post {
-          always {
-            sh "echo 'always'"
+    agent none
+    stages {
+      stage('Regression Tests') {
+        parallel {
+          stage('Pro tests') {
+            agent { label "master" }
+              steps {
+                    echo 'Pro tests'
+                    }
+              post {
+                success {
+                  echo "Pro tests DONE"
+                    }
                   }
-          failure {
-            // test image fails
-            archiveArtifacts 'list.log'
-            slackSend channel: '#jenkins-qa', color: 'danger', message: "${currentBuild.displayName}\nreport - FAILED"
               }
-            }
-          }
 
-    stage ('Test') {
-      steps {
-        dir(path: 'tests/') {
-          sh './proTests.sh'
-          }
+            stage('Pro2 Tests') {
+              agent { label "master" }
+                steps {
+                      echo 'Pro2 tests'
+                      }
+                post {
+                   success {
+                      echo "Pro tests DONE"
+                      }
+                    }
+                }
+            
+            
+            } // End parallel
         }
-      post {
-        always {
-          archiveArtifacts 'tests/results/*.xml'
-          junit 'tests/results/*.xml'
-          }
-        }
-      }
-
-    } // End Stages
-} // End pipeline
+    }
+}
  
 
