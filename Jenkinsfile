@@ -34,7 +34,10 @@ pipeline {
       post {
         always {
           echo 'Close test run for Regression Tests'
-          new_testrun_id = readFile("automation/jenkins/testrun_id")
+          script {
+            new_testrun_id = readFile("automation/jenkins/testrun_id")
+            echo "${new_testrun_id}"
+              }
             }
           }
         } // End of stage
