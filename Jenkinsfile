@@ -9,7 +9,7 @@ pipeline {
                     echo 'Pro tests started'
                     script {
                       testrun_id = '1234'
-                      writeFile file: 'automation/jenkins/testrun_id', text: "${testrun_id}"
+                      writeFile file: 'testrun_id', text: "${testrun_id}"
                       }
                     }
               post {
@@ -35,7 +35,7 @@ pipeline {
         always {
           echo 'Close test run for Regression Tests'
           script {
-            new_testrun_id = readFile("automation/jenkins/testrun_id")
+            new_testrun_id = readFile("testrun_id")
             echo "${new_testrun_id}"
               }
             }
