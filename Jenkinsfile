@@ -2,9 +2,6 @@ pipeline {
     agent none
     stages {
       stage('Regression Tests') {
-        steps {
-          echo "Can I do something here....?"
-
         parallel {
           stage('Pro tests') {
             agent { label "master" }
@@ -36,7 +33,6 @@ pipeline {
             }
           }
         } // End of stage
-      }
     }
 }
  
