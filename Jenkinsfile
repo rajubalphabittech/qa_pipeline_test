@@ -2,15 +2,16 @@ pipeline {
     agent none
     stages {
       stage('Regression Tests') {
+        echo "Can I do something here....?"
         parallel {
           stage('Pro tests') {
             agent { label "master" }
               steps {
-                    echo 'Pro tests'
+                    echo 'Pro tests started'
                     }
               post {
                 success {
-                  echo "Pro tests DONE"
+                  echo "Pro tests -- DONE"
                     }
                   }
               }
@@ -18,11 +19,11 @@ pipeline {
             stage('Pro2 Tests') {
               agent { label "master" }
                 steps {
-                      echo 'Pro2 tests'
+                      echo 'Pro2 tests started'
                       }
                 post {
                    success {
-                      echo "Pro tests DONE"
+                      echo "Pro2 tests -- DONE"
                       }
                     }
                 }
