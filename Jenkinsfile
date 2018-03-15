@@ -39,8 +39,7 @@ pipeline {
         always {
           echo 'Close test run for Regression Tests'
           script {
-            new_testrun_id = readFile("testrun_id")
-            echo ${new_testrun_id}
+            sh 'echo "close the run..."'
               }
             }
           }
