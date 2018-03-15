@@ -30,9 +30,7 @@ pipeline {
       post {
         always {
           echo 'Close test run for Regression Tests'
-          script {
-            sh 'echo "close the run..."'
-              }
+          sh 'echo "close the run..."'
             }
           }
         } // End of stage
