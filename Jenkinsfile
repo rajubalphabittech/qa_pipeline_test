@@ -33,9 +33,7 @@ pipeline {
           always {
             echo "Post at end of parallel..."
             node('master') {
-              steps{
-                sh 'echo "run something..."'
-              }
+              step(sh 'echo "run something..."')
             }
           }
         } // end of post
@@ -43,4 +41,3 @@ pipeline {
     } 
   }
  
-
