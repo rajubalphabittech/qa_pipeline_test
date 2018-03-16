@@ -46,7 +46,6 @@ pipeline {
           echo 'echo "Close the regression test run..."'
         }
       }   
-    } // End of stage
-  }
+    }
  
 
