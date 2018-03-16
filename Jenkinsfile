@@ -32,12 +32,15 @@ pipeline {
         post {
           always {
             echo "Post at end of parallel..."
-            script {
-              sh 'echo "run something..."'
+            node('master') {
+              steps{
+                sh 'echo "run something..."'
+              }
             }
           }
+          }
         }
-        }
+      }
       stage ('Close test run') {
         steps {
           echo 'echo "Close the regression test run..."'
