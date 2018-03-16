@@ -38,14 +38,9 @@ pipeline {
               }
             }
           }
-          }
-        }
+        } // end of post
       }
-      stage ('Close test run') {
-        steps {
-          echo 'echo "Close the regression test run..."'
-        }
-      }   
-    }
+    } 
+  }
  
 
