@@ -32,7 +32,7 @@ pipeline {
         post {
           always {
             echo "Post at end of parallel..."
-            node {
+            script {
               sh 'echo "run something..."'
             }
           }
