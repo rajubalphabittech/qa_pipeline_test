@@ -29,6 +29,11 @@ pipeline {
                     }
                 }
             } // End parallel
+        post {
+          always {
+            echo "Post at end of parallel..."
+          }
+        }
         }
       stage ('Close test run') {
         steps {
