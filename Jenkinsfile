@@ -19,6 +19,8 @@ pipeline {
               agent { label "master" }
                 steps {
                       echo 'Pro2 tests started'
+                      echo 'failing test...'
+                      sh "ls -2"
                       }
                 post {
                    success {
