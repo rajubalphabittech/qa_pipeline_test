@@ -9,7 +9,7 @@ pipeline {
                 echo 'Pro tests started'
                 script {
                   testrun_id = 12345
-                  writeFile file: 'automation/jenkins/testrun_id', text: '${testrun_id}'
+                  writeFile file: 'automation/jenkins/testrun_id', text: "${testrun_id}"
                   }
                 }
               post {
