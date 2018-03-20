@@ -6,8 +6,12 @@ pipeline {
           stage('Pro tests') {
             agent { label "master" }
               steps {
-                    echo 'Pro tests started'
-                    }
+                echo 'Pro tests started'
+                script {
+                  testrun_id = 12345
+                  writeFile file: 'automation/jenkins/testrun_id', text: '${testrun_id}'
+                  }
+                }
               post {
                 success {
                   echo "Pro tests -- DONE"
@@ -18,15 +22,14 @@ pipeline {
             stage('Pro2 Tests') {
               agent { label "master" }
                 steps {
-                      echo 'Pro2 tests started'
-                      echo 'failing test...'
-                      sh "ls -2"
-                      }
+                  echo 'Pro2 tests started'
+                  sh "ls -l"
+                  }
                 post {
-                   success {
-                      echo "Pro2 tests -- DONE"
-                      }
+                  success {
+                    echo "Pro2 tests -- DONE"
                     }
+                  }
                 }
             } // End parallel
         post {
