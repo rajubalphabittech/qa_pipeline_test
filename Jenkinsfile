@@ -13,6 +13,7 @@ pipeline {
         }
         post {
           always {
+            sh 'echo "run a scipt next..."'
             script {
               // save this value for later...
               testrun_id = sh(returnStdout: true, script: 'echo "test12345"').trim()
