@@ -45,8 +45,10 @@ pipeline {
     always {
       echo "Post at end of parallel..."
       sh 'echo "Damn you Jenkins!"'
+      // Placeholder to run closeTestRun.py
       sh 'python3 --version'
-      echo "At least I can run python here..."
+      // Placeholder to run runTestRailreport.py
+      sh 'python3 --version'
       }
     } // end of post
   options {timestamps()
