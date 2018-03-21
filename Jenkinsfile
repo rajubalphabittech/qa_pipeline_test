@@ -40,6 +40,7 @@ pipeline {
               }
           } // End parallel
         }
+      }
   post {
     always {
       echo "Post at end of parallel..."
@@ -53,7 +54,6 @@ pipeline {
         }
       }
     } // end of post
-  }
   options {timestamps()
   } 
 }
