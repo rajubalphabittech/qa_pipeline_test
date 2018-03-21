@@ -47,7 +47,7 @@ pipeline {
         } // end of post
       }
     }
-  options {timestamps())
+  options {timestamps()
     } 
   }
  
