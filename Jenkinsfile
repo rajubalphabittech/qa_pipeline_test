@@ -12,8 +12,8 @@ pipeline {
             steps {
               echo 'Pro tests started'
               script {
-                testrun_id = 12345
-                writeFile file: 'automation/jenkins/testrun_id', text: "${testrun_id}"
+                //writeFile file: 'automation/jenkins/testrun_id', text: "${testrun_id}"
+                testrun_id = sh(returnStdout: true, script: 'echo "12345"').trim()
                 // Test that fails...
                 sh "ls -4"
                 }
@@ -47,6 +47,7 @@ pipeline {
       sh 'echo "Damn you Jenkins!"'
       // Placeholder to run closeTestRun.py
       sh 'python3 --version'
+      sh 'echo "${testrun_id}"'
       // Placeholder to run runTestRailreport.py
       sh 'python3 --version'
       }
