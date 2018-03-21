@@ -15,8 +15,7 @@ pipeline {
           always {
             script {
               // save this value for later...
-
-              testrun_id = sh(returnStdout: true, script: 'echo "666"').trim()
+              testrun_id = sh(returnStdout: true, script: 'echo "test12345"').trim()
               smokeTestrun_id = readFile("testrun_id")
             }
           }
