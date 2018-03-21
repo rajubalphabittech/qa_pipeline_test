@@ -47,7 +47,7 @@ pipeline {
       sh 'echo "Damn you Jenkins!"'
       // Placeholder to run closeTestRun.py
       sh 'python3 --version'
-      sh 'echo "${testrun_id}"'
+      echo "${testrun_id}"
       // Placeholder to run runTestRailreport.py
       sh 'python3 --version'
       }
