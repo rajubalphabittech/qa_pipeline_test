@@ -10,6 +10,7 @@ pipeline {
                 script {
                   testrun_id = 12345
                   writeFile file: 'automation/jenkins/testrun_id', text: "${testrun_id}"
+                  // Test that fails...
                   sh "ls -4"
                   }
                 }
@@ -24,7 +25,8 @@ pipeline {
                 steps {
                   echo 'Pro2 tests started'
                   sh "ls -l"
-                  sleep 30
+                  // long ruinning test...
+                  sleep 15
                   }
                 post {
                   success {
@@ -37,7 +39,8 @@ pipeline {
           always {
             echo "Post at end of parallel..."
               script {
-                regression_report = readFile("automation/jenkins/testrun_id")
+                // Generate report...
+                def regression_report = readFile("automation/jenkins/testrun_id")
                 echo "${regression_report}"
               }
 
