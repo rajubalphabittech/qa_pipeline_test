@@ -19,7 +19,7 @@ pipeline {
             sh 'echo "run a scipt after SUCCESS"'
             script {
               // save this value for later...
-              testrun_id = sh(returnStdout: true, script: 'echo "test12345"').trim()
+              testrun_id = sh(returnStdout: true, script: 'echo "test666"').trim()
               smokeTestrun_id = readFile("testrun_id")
             }
           }
