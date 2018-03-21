@@ -1,5 +1,10 @@
 pipeline {
-    agent none
+  agent {
+    node {
+      label 'master'
+    }
+  }
+
     stages {
       stage('Regression Tests') {
         parallel {
@@ -26,7 +31,7 @@ pipeline {
                   echo 'Pro2 tests started'
                   sh "ls -l"
                   // long ruinning test...
-                  sleep 15
+                  sleep 10
                   }
                 post {
                   success {
@@ -38,12 +43,13 @@ pipeline {
         post {
           always {
             echo "Post at end of parallel..."
+            node ("master") {
               script {
                 // Generate report...
                 def regression_report = readFile("automation/jenkins/testrun_id")
                 echo "${regression_report}"
               }
-
+            }
           }
         } // end of post
       }
