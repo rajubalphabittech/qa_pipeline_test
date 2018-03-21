@@ -37,7 +37,7 @@ pipeline {
         post {
           always {
             echo "Post at end of parallel..."
-            node('master') {
+            node() {
               script {
                 regression_report = readFile("automation/jenkins/testrun_id")
                 echo "${regression_report}"
