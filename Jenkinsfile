@@ -46,7 +46,9 @@ pipeline {
       echo "Post at end of parallel..."
       sh 'echo "Damn you Jenkins!"'
       // Placeholder to run closeTestRun.py
-      sh 'python3 --version'
+      //sh 'python3 --version'
+      result = sh(returnStdout: true, script: 'python3 -- version').trim()
+      echo "${result}"
       // Placeholder to run runTestRailreport.py
       sh 'python3 --version'
       }
