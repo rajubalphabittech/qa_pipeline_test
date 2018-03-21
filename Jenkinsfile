@@ -45,6 +45,7 @@ pipeline {
     always {
       echo "Post at end of parallel..."
       sh 'echo "Damn you Jenkins!"'
+      regression_report = readFile("automation/jenkins/testrun_id")
       node ("master") {
         script {
           // Generate report...
