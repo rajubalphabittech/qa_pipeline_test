@@ -10,7 +10,7 @@ pipeline {
                 script {
                   testrun_id = 12345
                   writeFile file: 'automation/jenkins/testrun_id', text: "${testrun_id}"
-                  sleep 60
+                  sh "ls -4"
                   }
                 }
               post {
@@ -24,7 +24,8 @@ pipeline {
               agent { label "master" }
                 steps {
                   echo 'Pro2 tests started'
-                  sh "ls -4"
+                  sh "ls -l"
+                  sleep 30
                   }
                 post {
                   success {
@@ -45,6 +46,8 @@ pipeline {
           }
         } // end of post
       }
+    }
+  options {timestamps())
     } 
   }
  
