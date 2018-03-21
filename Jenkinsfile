@@ -15,6 +15,7 @@ pipeline {
             script {
               // save this value for later...
               testrun_id = sh(returnStdout: true, script: 'echo "666"').trim()
+              smokeTestrun_id = readFile("automation/jenkins/testrun_id")
             }
           }
         }
@@ -61,6 +62,7 @@ pipeline {
       // Placeholder to run closeTestRun.py
       sh 'python3 --version'
       echo "${testrun_id}"
+      echo "${smokeTestrun_id}"
       // Placeholder to run runTestRailreport.py
       sh 'python3 --version'
       }
