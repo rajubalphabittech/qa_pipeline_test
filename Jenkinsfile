@@ -10,6 +10,7 @@ pipeline {
                 script {
                   testrun_id = 12345
                   writeFile file: 'automation/jenkins/testrun_id', text: "${testrun_id}"
+                  sleep 60
                   }
                 }
               post {
