@@ -5,17 +5,28 @@ pipeline {
     }
   }
   stages {
+    stage('Smoke Tests') {
+      agent { label "master"}
+        steps {
+          sh "ls -l"
+        }
+        post {
+          always {
+            // save this value for later...
+            testrun_id = sh(returnStdout: true, script: 'echo "666"').trim()
+          }
+        }
+      }
+
     stage('Regression Tests') {
       parallel {
         stage('Pro tests') {
           agent { label "master" }
             steps {
               echo 'Pro tests started'
-              script {
-                //writeFile file: 'automation/jenkins/testrun_id', text: "${testrun_id}"
-                testrun_id = sh(returnStdout: true, script: 'echo "12345"').trim()
+              script {       
                 // Test that fails...
-                sh "ls -4"
+                sh "ls -l"
                 }
               }
             post {
