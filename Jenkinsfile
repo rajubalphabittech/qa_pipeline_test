@@ -39,20 +39,20 @@ pipeline {
                 }
               }
           } // End parallel
-      post {
-        always {
-          echo "Post at end of parallel..."
-          node ("master") {
-            script {
-              // Generate report...
-              regression_report = readFile("automation/jenkins/testrun_id")
-              echo 'Post report...'
-              echo "${regression_report}"
-            }
+        }
+  post {
+    always {
+      echo "Post at end of parallel..."
+      node ("master") {
+        script {
+          // Generate report...
+          regression_report = readFile("automation/jenkins/testrun_id")
+          echo 'Post report...'
+          echo "${regression_report}"
           }
         }
-      } // end of post
-    }
+      }
+    } // end of post
   }
   options {timestamps()
   } 
