@@ -9,13 +9,15 @@ pipeline {
       agent { label "master"}
         steps {
           sh "ls -l"
+          writeFile file: 'testrun_id', text: '12345'
         }
         post {
           always {
             script {
               // save this value for later...
+
               testrun_id = sh(returnStdout: true, script: 'echo "666"').trim()
-              smokeTestrun_id = readFile("automation/jenkins/testrun_id")
+              smokeTestrun_id = readFile("testrun_id")
             }
           }
         }
