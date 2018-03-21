@@ -43,16 +43,10 @@ pipeline {
       }
   post {
     always {
-      node ("master") {
-        script {
-          // Generate report...
-          regression_report = readFile("automation/jenkins/testrun_id")
-          echo 'Post report...'
-          echo "${regression_report}"
-          }
-        }
       echo "Post at end of parallel..."
       sh 'echo "Damn you Jenkins!"'
+      sh 'python3 --version'
+      echo "At least I can run python here..."
       }
     } // end of post
   options {timestamps()
