@@ -46,7 +46,7 @@ pipeline {
             node ("master") {
               script {
                 // Generate report...
-                def regression_report = readFile("automation/jenkins/testrun_id")
+                regression_report = readFile("automation/jenkins/testrun_id")
                 echo 'Post report...'
                 echo "${regression_report}"
               }
