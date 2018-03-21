@@ -44,6 +44,7 @@ pipeline {
   post {
     always {
       echo "Post at end of parallel..."
+      sh 'echo "Damn you Jenkins!"'
       node ("master") {
         script {
           // Generate report...
