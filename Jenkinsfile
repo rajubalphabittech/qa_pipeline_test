@@ -12,8 +12,10 @@ pipeline {
         }
         post {
           always {
-            // save this value for later...
-            testrun_id = sh(returnStdout: true, script: 'echo "666"').trim()
+            script {
+              // save this value for later...
+              testrun_id = sh(returnStdout: true, script: 'echo "666"').trim()
+            }
           }
         }
       }
