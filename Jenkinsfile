@@ -10,6 +10,7 @@ pipeline {
         steps {
           sh "ls -l"
           writeFile file: 'testrun_id', text: '12345'
+          stash includes: 'testrun_id', name: 'testrun'
         }
         post {
           always {
@@ -21,6 +22,7 @@ pipeline {
               // save this value for later...
               testrun_id = sh(returnStdout: true, script: 'echo "test666"').trim()
               smokeTestrun_id = readFile("testrun_id")
+
             }
           }
         }
@@ -64,6 +66,8 @@ pipeline {
     always {
       echo "Post at end of parallel..."
       sh 'echo "Damn you Jenkins!"'
+      // Does unstash work here?
+      unstash 'testrun'
       // Placeholder to run closeTestRun.py
       sh 'python3 --version'
       echo "${testrun_id}"
