@@ -65,14 +65,19 @@ pipeline {
   post {
     always {
       echo "Post at end of parallel..."
+      script {
+        if ("${testrun_id}" == '12345') {
+          echo "Looks like IF/ELSE works"
+        } else {
+          echo "Guess not"
+        }
+        sh 'python3 --version'
+      }
       sh 'echo "Damn you Jenkins!"'
       // Does unstash work here?
       unstash 'testrun'
-      // Placeholder to run closeTestRun.py
-      sh 'python3 --version'
       echo "${testrun_id}"
       echo "${smokeTestrun_id}"
-      // Placeholder to run runTestRailreport.py
       sh 'python3 --version'
       }
     } // end of post
