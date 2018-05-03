@@ -26,17 +26,16 @@ pipeline {
 
     stage('Regression Tests') {
       parallel {
-        stage('Pro tests') {
+        stage('Regression 1') {
           agent { label "master" }
             steps {
-              echo 'Pro tests started'
+              echo 'Regression 1'
             }
           }
-        stage('Pro2 Tests') {
+        stage('Regression 2') {
           agent { label "master" }
             steps {
-              echo 'Pro2 tests started'
-              sh "ls -l"
+              echo 'Regression 2'
               // long ruinning test...
               sleep 2
               }
