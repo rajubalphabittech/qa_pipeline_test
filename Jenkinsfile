@@ -6,7 +6,7 @@ pipeline {
   }
   triggers {
     pollSCM('* * * * *') //runs this pipeline on every commit
-    cron('30 15 * * *') //run at 14:30:00 
+    cron('1 15 * * *') //run at 14:30:00 
   }
 
   stages {
