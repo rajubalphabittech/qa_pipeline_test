@@ -17,6 +17,8 @@ pipeline {
           agent { label "master"}
             steps {
               echo 'SmokeTest 2'
+              sleep 2
+              sh "ls -5"
             }
           }
         }
