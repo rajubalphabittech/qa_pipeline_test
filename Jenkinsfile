@@ -6,7 +6,7 @@ pipeline {
   }
   triggers {
     pollSCM('* * * * *') //runs this pipeline on every commit
-    cron('30 14 * * *') //run at 14:30:00 
+    cron('30 15 * * *') //run at 14:30:00 
   }
 
   stages {
@@ -21,7 +21,7 @@ pipeline {
         stage('SmokeTest 2') {
           when {//runs only when the expression evaluates to true
                 expression {//will return true when the build runs via cron trigger (also when there is a commit at night between 14:00 and 14:59)
-                    return Calendar.instance.get(Calendar.HOUR_OF_DAY) in 14
+                    return Calendar.instance.get(Calendar.HOUR_OF_DAY) in 15
                 }
             }
           agent { label "master"}
