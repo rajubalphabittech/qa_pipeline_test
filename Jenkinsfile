@@ -59,15 +59,6 @@ pipeline {
         }
       } // End stages
 
-    post {
-      always {
-        when {
-          expression { return $regressionPro2Testrun_id 
-          }
-        }
-        echo "Anything?"
-      }
-    }
   options {timestamps()
   } 
 }
