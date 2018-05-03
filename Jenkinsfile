@@ -15,7 +15,7 @@ pipeline {
         stage('SmokeTest 1') {
           agent { label "master"}
             steps {
-              echo 'SmokeTest 1'
+              echo 'SmokeTest 1 runs with every commit'
             }
           }
         stage('SmokeTest 2') {
@@ -26,7 +26,7 @@ pipeline {
             }
           agent { label "master"}
             steps {
-              echo 'SmokeTest 2'
+              echo 'SmokeTest 2 runs only time'
               sleep 2
               sh "ls -l"
             }
