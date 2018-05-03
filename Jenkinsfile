@@ -6,23 +6,17 @@ pipeline {
   }
   stages {
     stage('Smoke Tests') {
-      agent { label "master"}
-        steps {
-          sh "ls -l"
-          writeFile file: 'testrun_id', text: '12345'
-          stash includes: 'testrun_id', name: 'testrun'
-        }
-        post {
-          always {
-            echo "Posting from ALWAYS"
+      parallel {
+        stage('SmokeTest 1') {
+          agent { label "master"}
+            steps {
+              echo 'SmokeTest 1'
+            }
           }
-          success {
-            sh 'echo "run a scipt after SUCCESS"'
-            script {
-              // save this value for later...
-              testrun_id = sh(returnStdout: true, script: 'echo "test666"').trim()
-              smokeTestrun_id = readFile("testrun_id")
-
+        stage('SmokeTest 2') {
+          agent { label "master"}
+            steps {
+              echo 'SmokeTest 2'
             }
           }
         }
@@ -34,53 +28,20 @@ pipeline {
           agent { label "master" }
             steps {
               echo 'Pro tests started'
-              script {       
-                // Test that fails...
-                sh "ls -l"
-                }
-              }
-            post {
-              success {
-                echo "Pro tests -- DONE"
-                  }
-                }
             }
-          stage('Pro2 Tests') {
-            agent { label "master" }
-              steps {
-                echo 'Pro2 tests started'
-                sh "ls -l"
-                // long ruinning test...
-                sleep 10
-                }
-              post {
-                success {
-                  echo "Pro2 tests -- DONE"
-                  }
-                }
+          }
+        stage('Pro2 Tests') {
+          agent { label "master" }
+            steps {
+              echo 'Pro2 tests started'
+              sh "ls -l"
+              // long ruinning test...
+              sleep 2
               }
+            }
           } // End parallel
         }
       }
-  post {
-    always {
-      echo "Post at end of parallel..."
-      script {
-        if ("${testrun_id}" == '12345') {
-          echo "Looks like IF/ELSE works"
-        } else {
-          echo "Guess not"
-        }
-        sh 'python3 --version'
-      }
-      sh 'echo "Damn you Jenkins!"'
-      // Does unstash work here?
-      unstash 'testrun'
-      echo "${testrun_id}"
-      echo "${smokeTestrun_id}"
-      sh 'python3 --version'
-      }
-    } // end of post
   options {timestamps()
   } 
 }
