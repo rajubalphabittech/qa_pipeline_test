@@ -19,14 +19,9 @@ pipeline {
             }
           }
         stage('SmokeTest 2') {
-          when {//runs only when the expression evaluates to true
-                expression {//will return true when the build runs via cron trigger (also when there is a commit at night between 14:00 and 14:59)
-                    return Calendar.instance.get(Calendar.HOUR_OF_DAY) in 15
-                }
-            }
           agent { label "master"}
             steps {
-              echo 'SmokeTest 2 runs only time'
+              echo 'SmokeTest 2 runs with every commit'
               sleep 2
               sh "ls -l"
             }
@@ -37,15 +32,25 @@ pipeline {
     stage('Regression Tests') {
       parallel {
         stage('Regression 1') {
+          when {//runs only when the expression evaluates to true
+                expression {//will return true when the build runs via cron trigger (also when there is a commit at night between 14:00 and 14:59)
+                    return Calendar.instance.get(Calendar.HOUR_OF_DAY) in 15
+                }
+            }
           agent { label "master" }
             steps {
-              echo 'Regression 1'
+              echo 'Regression 1 only runs at night'
             }
           }
         stage('Regression 2') {
+          when {//runs only when the expression evaluates to true
+                expression {//will return true when the build runs via cron trigger (also when there is a commit at night between 14:00 and 14:59)
+                    return Calendar.instance.get(Calendar.HOUR_OF_DAY) in 15
+                }
+            }
           agent { label "master" }
             steps {
-              echo 'Regression 2'
+              echo 'Regression 2 only runs at night'
               // long ruinning test...
               sleep 2
               }
