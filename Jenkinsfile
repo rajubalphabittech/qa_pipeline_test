@@ -17,10 +17,10 @@ pipeline {
             steps {
               echo 'SmokeTest 1 runs with every commit'
               script {
-                if (Calendar.instance.get(Calendar.HOUR_OF_DAY) in 15 == true) {
+                if (Calendar.instance.get(Calendar.HOUR_OF_DAY) in 16 == true) {
                   trigger = '(nightly)'
                   // commit test run
-                  echo "Nighly trigger"
+                  echo "Nightly trigger"
                 } else {
                   trigger = '(Commit trigger)'
                   // Nightly test run
