@@ -16,6 +16,17 @@ pipeline {
           agent { label "master"}
             steps {
               echo 'SmokeTest 1 runs with every commit'
+              script {
+                if (Calendar.instance.get(Calendar.HOUR_OF_DAY) in 15 == true) {
+                  trigger = '(nightly)'
+                  // commit test run
+                  echo "Nighly trigger"
+                } else {
+                  trigger = '(Commit trigger)'
+                  // Nightly test run
+                  echo "Commit trigger"
+                }
+              }
             }
           }
         stage('SmokeTest 2') {
@@ -59,7 +70,9 @@ pipeline {
         }
       } // End stages
 
-  options {timestamps()
-  } 
+  options {
+    timestamps()
+    buildDiscarder(logRotator(numToKeepStr: '20'))
+  }
 }
  
